@@ -1,5 +1,7 @@
 package com.haulmont.sample.petclinic.web.screens.owner.address;
 
+import com.haulmont.cuba.core.entity.Entity;
+import com.haulmont.cuba.gui.components.HasValue;
 import com.haulmont.cuba.gui.components.HasValue.ValueChangeEvent;
 import com.haulmont.cuba.gui.components.LookupField;
 import com.haulmont.cuba.gui.screen.*;
@@ -25,22 +27,22 @@ public class AddressEdit extends StandardEditor<Address> {
 
     @Subscribe("cityField")
     protected void onCityFieldValueChange(ValueChangeEvent<City> event) {
-        if (event.getPrevValue() != event.getValue()) {
-            streetField.setValue(null);
-        }
+        clearField(streetField, event);
     }
 
     @Subscribe("stateField")
     protected void onStateFieldValueChange(ValueChangeEvent<State> event) {
-        if (event.getPrevValue() != event.getValue()) {
-            cityField.setValue(null);
-        }
+        clearField(cityField, event);
     }
 
     @Subscribe("countryField")
     protected void onCountryFieldValueChange(ValueChangeEvent<Country> event) {
+        clearField(stateField, event);
+    }
+
+    private void clearField(LookupField<? extends Entity> field, ValueChangeEvent<? extends Entity> event) {
         if (event.getPrevValue() != event.getValue()) {
-            stateField.setValue(null);
+            field.setValue(null);
         }
     }
 
