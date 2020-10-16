@@ -7,7 +7,7 @@
 
 ## Example: Dependent Lookup Fields
 
-This Example extends the CUBA Petclinic with dependent lookup components in order to select a hierachical owner address.
+This Example extends the CUBA Petclinic with dependent lookup components in order to select a hierarchical owner address.
 
 ![Petclinic Dependent Lookup](img/cuba-example-dependent-lookup-overview.gif)
 
