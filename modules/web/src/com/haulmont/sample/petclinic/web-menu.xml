@@ -9,6 +9,13 @@
         <item screen="petclinic_Veterinarian.browse"/>
         <item screen="petclinic_PetType.browse"/>
         <item screen="petclinic_Specialty.browse"/>
+        <item screen="petclinic_Country.browse"
+          caption="mainMsg://menu_config.petclinic_Country.browse"/>
+        <item screen="petclinic_State.browse"
+          caption="mainMsg://menu_config.petclinic_State.browse"/>
+        <item screen="petclinic_City.browse" caption="mainMsg://menu_config.petclinic_City.browse"/>
+        <item screen="petclinic_Street.browse"
+          caption="mainMsg://menu_config.petclinic_Street.browse"/>
     </menu>
 
 </menu-config>

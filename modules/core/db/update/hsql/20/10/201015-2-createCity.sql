@@ -1,0 +1,2 @@
+alter table PETCLINIC_CITY add constraint FK_PETCLINIC_CITY_STATE foreign key (STATE_ID) references PETCLINIC_STATE(ID);
+create index IDX_PETCLINIC_CITY_STATE on PETCLINIC_CITY (STATE_ID);

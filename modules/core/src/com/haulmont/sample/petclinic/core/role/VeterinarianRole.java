@@ -11,6 +11,11 @@ import com.haulmont.cuba.security.role.EntityAttributePermissionsContainer;
 import com.haulmont.cuba.security.role.EntityPermissionsContainer;
 import com.haulmont.cuba.security.role.ScreenPermissionsContainer;
 import com.haulmont.sample.petclinic.entity.owner.Owner;
+import com.haulmont.sample.petclinic.entity.owner.address.Address;
+import com.haulmont.sample.petclinic.entity.owner.address.City;
+import com.haulmont.sample.petclinic.entity.owner.address.Country;
+import com.haulmont.sample.petclinic.entity.owner.address.State;
+import com.haulmont.sample.petclinic.entity.owner.address.Street;
 import com.haulmont.sample.petclinic.entity.pet.Pet;
 import com.haulmont.sample.petclinic.entity.pet.PetType;
 import com.haulmont.sample.petclinic.entity.veterinarian.Specialty;
@@ -22,6 +27,11 @@ public class VeterinarianRole extends AnnotatedRoleDefinition {
 
   public final static String NAME = "Veterinarian";
 
+  @EntityAccess(entityClass = Street.class, operations = {EntityOp.CREATE, EntityOp.READ, EntityOp.UPDATE, EntityOp.DELETE})
+  @EntityAccess(entityClass = City.class, operations = {EntityOp.CREATE, EntityOp.READ, EntityOp.UPDATE, EntityOp.DELETE})
+  @EntityAccess(entityClass = State.class, operations = {EntityOp.CREATE, EntityOp.READ, EntityOp.UPDATE, EntityOp.DELETE})
+  @EntityAccess(entityClass = Country.class, operations = {EntityOp.CREATE, EntityOp.READ, EntityOp.UPDATE, EntityOp.DELETE})
+  @EntityAccess(entityClass = Address.class, operations = {EntityOp.CREATE, EntityOp.READ, EntityOp.UPDATE, EntityOp.DELETE})
   @EntityAccess(entityClass = Visit.class, operations = {EntityOp.CREATE, EntityOp.READ, EntityOp.UPDATE, EntityOp.DELETE})
   @EntityAccess(entityClass = Pet.class, operations = {EntityOp.CREATE, EntityOp.READ, EntityOp.UPDATE, EntityOp.DELETE})
   @EntityAccess(entityClass = Owner.class, operations = {EntityOp.CREATE, EntityOp.READ, EntityOp.UPDATE, EntityOp.DELETE})
@@ -34,7 +44,11 @@ public class VeterinarianRole extends AnnotatedRoleDefinition {
     return super.entityPermissions();
   }
 
-
+  @EntityAttributeAccess(entityClass = Street.class, modify = "*")
+  @EntityAttributeAccess(entityClass = City.class, modify = "*")
+  @EntityAttributeAccess(entityClass = State.class, modify = "*")
+  @EntityAttributeAccess(entityClass = Country.class, modify = "*")
+  @EntityAttributeAccess(entityClass = Address.class, modify = "*")
   @EntityAttributeAccess(entityClass = Owner.class, modify = "*")
   @EntityAttributeAccess(entityClass = Pet.class, modify = "*")
   @EntityAttributeAccess(entityClass = Visit.class, modify = "*")
@@ -51,6 +65,13 @@ public class VeterinarianRole extends AnnotatedRoleDefinition {
 
   @ScreenAccess(screenIds = {
       "petclinic_myVisits",
+      "petclinic_Street.browse",
+      "petclinic_City.browse",
+      "petclinic_State.browse",
+      "petclinic_Country.browse",
+      "petclinic_Address.browse",
+      "petclinic_Visit.browse",
+      "petclinic_Address.edit",
       "petclinic_Visit.browse",
       "petclinic_Visit.edit",
       "petclinic_Pet.browse",

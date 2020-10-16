@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+  caption="msg://addressEdit.caption"
+  focusComponent="form"
+  messagesPack="com.haulmont.sample.petclinic.web.screens.owner.address">
+  <data>
+    <instance id="addressDc"
+      class="com.haulmont.sample.petclinic.entity.owner.address.Address">
+      <view extends="_local">
+        <property name="country" view="_minimal"/>
+        <property name="state" view="_minimal">
+          <property name="country" view="_minimal"/>
+        </property>
+        <property name="city" view="_minimal">
+          <property name="state" view="_minimal"/>
+        </property>
+        <property name="street" view="_minimal">
+          <property name="city" view="_minimal"/>
+        </property>
+      </view>
+      <loader/>
+    </instance>
+    <collection id="countriesDc" class="com.haulmont.sample.petclinic.entity.owner.address.Country"
+      view="_minimal">
+      <loader id="countriesDl">
+        <query>
+          <![CDATA[select e from petclinic_Country e]]>
+        </query>
+      </loader>
+    </collection>
+    <collection id="statesDc" class="com.haulmont.sample.petclinic.entity.owner.address.State"
+      view="_minimal">
+      <loader id="statesDl">
+        <query>
+          <![CDATA[select e from petclinic_State e where e.country = :container_countriesDc]]>
+        </query>
+      </loader>
+    </collection>
+    <collection id="citiesDc" class="com.haulmont.sample.petclinic.entity.owner.address.City"
+      view="_minimal">
+      <loader id="citiesDl">
+        <query>
+          <![CDATA[select e from petclinic_City e where e.state = :container_statesDc]]>
+        </query>
+      </loader>
+    </collection>
+    <collection id="streetsDc" class="com.haulmont.sample.petclinic.entity.owner.address.Street"
+      view="_minimal">
+      <loader id="streetsDl">
+        <query>
+          <![CDATA[select e from petclinic_Street e where e.city = :container_citiesDc]]>
+        </query>
+      </loader>
+    </collection>
+  </data>
+  <dialogMode height="AUTO"
+    width="AUTO"
+    modal="true"
+    forceDialog="true"/>
+  <facets>
+    <dataLoadCoordinator auto="true"/>
+  </facets>
+  <layout expand="editActions" spacing="true">
+    <form id="form" dataContainer="addressDc">
+      <column width="350px">
+        <lookupField id="countryField" optionsContainer="countriesDc" property="country"/>
+        <lookupField id="stateField" optionsContainer="statesDc" property="state"/>
+        <lookupField id="cityField" optionsContainer="citiesDc" property="city"/>
+        <lookupField id="streetField" optionsContainer="streetsDc" property="street"/>
+        <textField id="postalCodeField" property="postalCode"/>
+        <textField id="houseNumberField" property="houseNumber"/>
+      </column>
+    </form>
+    <hbox id="editActions" spacing="true">
+      <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+      <button id="closeBtn" action="windowClose"/>
+    </hbox>
+  </layout>
+</window>

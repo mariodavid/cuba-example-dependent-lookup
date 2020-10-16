@@ -9,5 +9,10 @@
         <class>com.haulmont.sample.petclinic.entity.veterinarian.Veterinarian</class>
         <class>com.haulmont.sample.petclinic.entity.veterinarian.Specialty</class>
         <class>com.haulmont.sample.petclinic.entity.visit.Visit</class>
+      <class>com.haulmont.sample.petclinic.entity.owner.address.Country</class>
+        <class>com.haulmont.sample.petclinic.entity.owner.address.State</class>
+        <class>com.haulmont.sample.petclinic.entity.owner.address.City</class>
+        <class>com.haulmont.sample.petclinic.entity.owner.address.Street</class>
+        <class>com.haulmont.sample.petclinic.entity.owner.address.Address</class>
     </persistence-unit>
 </persistence>

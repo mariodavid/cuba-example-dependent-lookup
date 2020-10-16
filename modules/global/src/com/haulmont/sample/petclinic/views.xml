@@ -18,6 +18,7 @@
           name="owner-with-pets">
         <property name="pets"
                   view="_minimal"/>
+      <property name="address" view="_minimal"/>
     </view>
     <view class="com.haulmont.sample.petclinic.entity.pet.Pet"
           extends="_local"

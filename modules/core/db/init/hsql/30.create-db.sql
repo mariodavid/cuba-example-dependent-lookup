@@ -245,3 +245,84 @@ values ('c6ba9697-a71c-3577-2775-8b1355204c22', 1, '2020-05-12 19:23:41', 'admin
 insert into SEC_USER_ROLE
 (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, USER_ID, ROLE_ID, ROLE_NAME)
 values ('c6ba9697-a71c-3577-2775-8b1355204c23', 1, '2020-05-12 19:23:41', 'admin', '2020-05-12 19:23:41', null, null, null, '0859b00d-1278-5714-d9cf-50e49cf65c31', null, 'helium-theme-minimal');
+
+
+
+----------------------------------------------------------------------------------------------------
+-- Address Information
+----------------------------------------------------------------------------------------------------
+
+--- Countries
+insert into PETCLINIC_COUNTRY
+(ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME)
+values ('950b005a-379f-4e34-2f31-4e7d516a711b', 1, '2020-10-15 20:23:51', 'admin', '2020-10-15 20:23:51', null, null, null, 'China');
+
+insert into PETCLINIC_COUNTRY
+(ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME)
+values ('69ea2df0-a4c0-0238-152e-40046322c68f', 1, '2020-10-15 20:20:41', 'admin', '2020-10-15 20:20:41', null, null, null, 'Japan');
+
+
+--- States
+insert into PETCLINIC_STATE
+(ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME, COUNTRY_ID)
+values ('0a689528-54da-4195-4bc1-e6b876e4bd4f', 1, '2020-10-16 06:59:26', 'admin', '2020-10-16 06:59:26', null, null, null, 'Hubei', '950b005a-379f-4e34-2f31-4e7d516a711b');
+insert into PETCLINIC_STATE
+(ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME, COUNTRY_ID)
+values ('61158e69-b655-a32c-ed60-ec45425f6e23', 1, '2020-10-15 20:24:12', 'admin', '2020-10-15 20:24:12', null, null, null, 'Johto', '69ea2df0-a4c0-0238-152e-40046322c68f');
+insert into PETCLINIC_STATE
+(ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME, COUNTRY_ID)
+values ('784d0a45-cf99-221a-5ff3-c5affddf2b21', 1, '2020-10-15 20:21:16', 'admin', '2020-10-15 20:21:16', null, null, null, 'Kanto', '69ea2df0-a4c0-0238-152e-40046322c68f');
+insert into PETCLINIC_STATE
+(ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME, COUNTRY_ID)
+values ('d2e00b6d-1ec4-56d6-d469-f8cc78414cf4', 1, '2020-10-15 20:24:22', 'admin', '2020-10-15 20:24:22', null, null, null, 'Hoenn', '69ea2df0-a4c0-0238-152e-40046322c68f');
+insert into PETCLINIC_STATE
+(ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME, COUNTRY_ID)
+values ('d99453f2-441c-86ee-91c3-1d69c14c10ee', 2, '2020-10-15 20:24:48', 'admin', '2020-10-16 06:59:18', 'admin', null, null, 'Henan', '950b005a-379f-4e34-2f31-4e7d516a711b');
+
+
+--- Cities
+insert into PETCLINIC_CITY
+(ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME, STATE_ID)
+values ('7ac26d9c-2e19-24c5-07fc-47895b54871d', 1, '2020-10-16 07:00:54', 'admin', '2020-10-16 07:00:54', null, null, null, 'Wuhan', '0a689528-54da-4195-4bc1-e6b876e4bd4f');
+insert into PETCLINIC_CITY
+(ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME, STATE_ID)
+values ('87439113-1823-a9d1-e995-cb6f4c234124', 1, '2020-10-15 20:23:25', 'admin', '2020-10-15 20:23:25', null, null, null, 'Vertania City', '784d0a45-cf99-221a-5ff3-c5affddf2b21');
+insert into PETCLINIC_CITY
+(ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME, STATE_ID)
+values ('bfe5e41e-8297-9a70-e3bd-955091eb2ac4', 1, '2020-10-15 20:21:28', 'admin', '2020-10-15 20:21:28', null, null, null, 'Alabastia', '784d0a45-cf99-221a-5ff3-c5affddf2b21');
+insert into PETCLINIC_CITY
+(ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME, STATE_ID)
+values ('cc3e366e-c7e3-a48d-33d3-fe639caebc10', 1, '2020-10-16 07:02:46', 'admin', '2020-10-16 07:02:46', null, null, null, 'Zhumandian', 'd99453f2-441c-86ee-91c3-1d69c14c10ee');
+insert into PETCLINIC_CITY
+(ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME, STATE_ID)
+values ('d1a1920e-de36-d0d8-a417-8673f913c35d', 1, '2020-10-16 07:01:31', 'admin', '2020-10-16 07:01:31', null, null, null, 'Jingmen', '0a689528-54da-4195-4bc1-e6b876e4bd4f');
+insert into PETCLINIC_CITY
+(ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME, STATE_ID)
+values ('de245a0b-e0c5-4a0d-a6d6-ece8f35017c7', 1, '2020-10-15 20:23:43', 'admin', '2020-10-15 20:23:43', null, null, null, 'Lavandia', '784d0a45-cf99-221a-5ff3-c5affddf2b21');
+
+
+--- Streets
+insert into PETCLINIC_STREET
+(ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME, CITY_ID)
+values ('090ba95c-637d-3783-6629-f4898924c326', 1, '2020-10-16 07:10:33', 'admin', '2020-10-16 07:10:33', null, null, null, 'Jinji Road', 'd1a1920e-de36-d0d8-a417-8673f913c35d');
+insert into PETCLINIC_STREET
+(ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME, CITY_ID)
+values ('2a37f279-53e3-a646-746f-93ce196a74dc', 1, '2020-10-16 07:03:26', 'admin', '2020-10-16 07:03:26', null, null, null, 'Han Street', '7ac26d9c-2e19-24c5-07fc-47895b54871d');
+insert into PETCLINIC_STREET
+(ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME, CITY_ID)
+values ('2eebe0da-f3a5-6543-49b8-d088d76054d9', 1, '2020-10-16 07:05:27', 'admin', '2020-10-16 07:05:27', null, null, null, 'Rongyuan Road', '7ac26d9c-2e19-24c5-07fc-47895b54871d');
+insert into PETCLINIC_STREET
+(ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME, CITY_ID)
+values ('430aabcc-6dbd-6fee-92f3-d8104a093a04', 1, '2020-10-16 07:10:52', 'admin', '2020-10-16 07:10:52', null, null, null, 'Wuyi Road', 'd1a1920e-de36-d0d8-a417-8673f913c35d');
+insert into PETCLINIC_STREET
+(ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME, CITY_ID)
+values ('5490de88-2723-0b12-0cc1-c07c6e7339d0', 1, '2020-10-15 20:22:50', 'admin', '2020-10-15 20:22:50', null, null, null, 'Ashs Street', 'bfe5e41e-8297-9a70-e3bd-955091eb2ac4');
+insert into PETCLINIC_STREET
+(ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME, CITY_ID)
+values ('95b60893-8398-3112-3abe-40839d271919', 1, '2020-10-16 07:04:43', 'admin', '2020-10-16 07:04:43', null, null, null, 'Cuibai Road', 'cc3e366e-c7e3-a48d-33d3-fe639caebc10');
+insert into PETCLINIC_STREET
+(ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME, CITY_ID)
+values ('f20ce33c-12e9-7f67-1521-cc6ee69fd028', 1, '2020-10-16 07:05:38', 'admin', '2020-10-16 07:05:38', null, null, null, 'Kangfu Road', '7ac26d9c-2e19-24c5-07fc-47895b54871d');
+insert into PETCLINIC_STREET
+(ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME, CITY_ID)
+values ('fe08f723-21c2-2f41-2c67-8735c0783bbd', 1, '2020-10-15 20:22:18', 'admin', '2020-10-15 20:22:18', null, null, null, 'Professor Eichs Pokémon-Labor Street', 'bfe5e41e-8297-9a70-e3bd-955091eb2ac4');

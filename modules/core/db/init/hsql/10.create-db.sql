@@ -48,9 +48,8 @@ create table PETCLINIC_OWNER (
     FIRST_NAME varchar(255) not null,
     LAST_NAME varchar(255),
     --
-    ADDRESS varchar(255) not null,
-    CITY varchar(255) not null,
     EMAIL varchar(255),
+    ADDRESS_ID varchar(36),
     TELEPHONE varchar(255),
     --
     primary key (ID)
@@ -116,3 +115,90 @@ create table PETCLINIC_VETERINARIAN_SPECIALTY_LINK (
     primary key (VET_ID, SPECIALTY_ID)
 )^
 -- end PETCLINIC_VETERINARIAN_SPECIALTY_LINK
+-- begin PETCLINIC_ADDRESS
+create table PETCLINIC_ADDRESS (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    COUNTRY_ID varchar(36) not null,
+    STATE_ID varchar(36) not null,
+    CITY_ID varchar(36) not null,
+    POSTAL_CODE varchar(255),
+    STREET_ID varchar(36) not null,
+    HOUSE_NUMBER varchar(255),
+    --
+    primary key (ID)
+)^
+-- end PETCLINIC_ADDRESS
+-- begin PETCLINIC_STREET
+create table PETCLINIC_STREET (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    NAME varchar(255),
+    --
+    CITY_ID varchar(36) not null,
+    --
+    primary key (ID)
+)^
+-- end PETCLINIC_STREET
+-- begin PETCLINIC_COUNTRY
+create table PETCLINIC_COUNTRY (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    NAME varchar(255),
+    --
+    primary key (ID)
+)^
+-- end PETCLINIC_COUNTRY
+-- begin PETCLINIC_CITY
+create table PETCLINIC_CITY (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    NAME varchar(255),
+    --
+    STATE_ID varchar(36) not null,
+    --
+    primary key (ID)
+)^
+-- end PETCLINIC_CITY
+-- begin PETCLINIC_STATE
+create table PETCLINIC_STATE (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    NAME varchar(255),
+    --
+    COUNTRY_ID varchar(36) not null,
+    --
+    primary key (ID)
+)^
+-- end PETCLINIC_STATE
